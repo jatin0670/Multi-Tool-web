@@ -35,11 +35,11 @@ const ImgComp = () => {
 
        <div className=" w-[85%] md:w-[70%] lg:w-[60%] border-2 border-gray-800 rounded-2xl backdrop-blur-2xl gap-4 px-1 py-6 flex  items-center flex-col">
         
-         <h1 className=" text-xl md:text-2xl lg:text-3xl text-white font-bold">Upload Image to be compressed</h1>
+         <h1 className=" text-lg md:text-2xl lg:text-3xl text-white font-bold">Upload Image to be compressed</h1>
 
          <div className=" w-[90%] lg:w-[40%] p-2 flex flex-col gap-4 items-center justify-center ">
 
-            <span className=' w-[80%] rounded-lg px-1 py-6 bg-white flex flex-col items-center justify-center gap-4'>
+            <span className=' w-[90%] rounded-lg px-1 py-6 bg-white flex flex-col items-center justify-center gap-4'>
             < RiUpload2Fill  />
 
             <p className=" text-xs md:text-sm lg:text-sm ">{FileName} <span onClick={()=>{setFile(''); setFileName('Click the button below to upload')}} className='p-2 bg-gray-400 rounded-full cursor-pointer ml-2'>X</span></p>
@@ -54,7 +54,7 @@ const ImgComp = () => {
 
             <div className=' border border-gray-400 p-3 rounded-lg flex flex-col items-center justify-center gap-2'>
 
-            <span className=' text-white'> Selected compressed size "{FileSize}kb"</span>
+            <span className=' text-xs md:text-lg text-white'> Selected compressed size "{FileSize}kb"</span>
 
             <div className=' = w-full flex items-center justify-center gap-5 flex-wrap'>
                <span onClick={()=>setFileSize(100)} className=' p-2 bg-gray-900 rounded-lg text-white cursor-pointer'>100kb</span>
