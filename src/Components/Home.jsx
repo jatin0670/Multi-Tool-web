@@ -14,7 +14,7 @@ const Home = () => {
          {/* <ImgComp/> */}
          <h1 className='text-white text-xl md:text-5xl lg:text-6xl font-bold '>All tools in one place</h1>
          <div className=' w-[70%] md:w-[90%] lg:w-[90%] items-center justify-center flex flex-wrap gap-10 backdrop-blur-2xl rounded-lg border-2 border-gray-800 py-5'>
-         <ToolCards  to="/link-shortener" title={"Link Shortener"} dis={"it'sa free tool to shorten URLs and generate short links"}/>
+         <ToolCards  to="/link-shortener" title={"Link Shortener"} dis={"it's a free tool to shorten URLs and generate short links"}/>
          <ToolCards to="/img-compression" title={"Img Compression"} dis={"Compress JPG, PNG, SVG or GIF with the best quality and compression."}/>
         
          </div>
