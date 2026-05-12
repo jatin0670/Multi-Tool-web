@@ -2,11 +2,9 @@ import React from 'react'
 // import LinkShort from './Components/LinkShort'
 // import ImgComp from './Components/ImgComp'
 import ToolCards from './ToolCards'
-import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
-  
-     const navigator = useNavigate()
+
 
 
   return (
