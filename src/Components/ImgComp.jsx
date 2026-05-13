@@ -28,18 +28,18 @@ const ImgComp = () => {
 
 
   return (
-    <div className="  h-full w-full flex flex-col items-center justify-center gap-12 absolute inset-0 -z-10   [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] ">
+    <div className="  h-full w-full flex flex-col items-center justify-center gap-12 absolute inset-0  bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px] ">
    
-       <h1 className="text-3xl font-bold text-white md:text-4xl lg:text-6xl">image compressor</h1>
+       <h1 className="text-3xl font-bold text-gray-800 md:text-4xl lg:text-6xl">image compressor</h1>
 
 
-       <div className=" w-[85%] md:w-[70%] lg:w-[60%] border-2 border-gray-800 rounded-2xl backdrop-blur-2xl gap-4 px-1 py-6 flex  items-center flex-col">
+       <div className=" w-[85%] md:w-[70%] lg:w-[60%] border-2 border-gray-800 rounded-2xl backdrop-blur-2xl gap-4 px-1 py-6 flex  items-center flex-col shadow-md shadow-black">
         
-         <h1 className=" text-lg md:text-2xl lg:text-3xl text-white font-bold">Upload Image to be compressed</h1>
+         <h1 className=" text-lg md:text-2xl lg:text-3xl text-gray-800 font-bold">Upload Image to be compressed</h1>
 
          <div className=" w-[90%] lg:w-[40%] p-2 flex flex-col gap-4 items-center justify-center ">
 
-            <span className=' w-[90%] rounded-lg px-1 py-6 bg-white flex flex-col items-center justify-center gap-4'>
+            <span className=' w-[90%] rounded-lg px-1 py-6 bg-white flex flex-col items-center justify-center gap-4 shadow-md shadow-black border-2 border-gray-800'>
             < RiUpload2Fill  />
 
             <p className=" text-xs md:text-sm lg:text-sm ">{FileName} <span onClick={()=>{setFile(''); setFileName('Click the button below to upload')}} className='p-2 bg-gray-400 rounded-full cursor-pointer ml-2'>X</span></p>
