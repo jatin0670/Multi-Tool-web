@@ -8,6 +8,7 @@ const LinkShort = () => {
     const [link, setLink] = useState('Your Link will be here!')
     const [url, setUrl] = useState('')
     const [clicked, setClicked] = useState(false);
+    const [load, setLoad] = useState(false)
 
   
 
@@ -18,9 +19,9 @@ const LinkShort = () => {
           setLink('Your Link will be here!')
           return;
         }
-      const response = await axios.get(`https://is.gd/create.php?format=json&url=${url}`)
-      console.log(response)
-      setLink(response.data.shorturl)
+        fetch(`https://ulvis.net/api/v1/urls/${url}`)
+        .then(response => response.json())
+        .then(data => console.log(data));
       
   
       }
@@ -33,19 +34,19 @@ const LinkShort = () => {
 
 
 return (
-       <div className="  h-full w-full flex flex-col items-center justify-center gap-16 absolute inset-0  bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px] ">
+       <div className="  h-screen w-full flex flex-col items-center justify-center gap-16 bg-[#F3F0E8]">
    
-       <h1 className="text-3xl md:text-6xl lg:text-6xl font-bold text-gray-800">Link Shortner</h1>
+       <h1 className="text-3xl md:text-6xl lg:text-6xl font-bold text-[#585346]">Link Shortner</h1>
 
 
-       <div className=" w-[90%] md:w-[60%] lg:w-[60%] border-2 border-gray-800 rounded-2xl backdrop-blur-2xl gap-4 px-1 py-6 flex  items-center flex-col shadow-md shadow-black">
+       <div className=" w-[90%] md:w-[60%] lg:w-[60%] border-2 border-gray-800 rounded-2xl bg-white gap-4 px-1 py-6 flex  items-center flex-col shadow-md shadow-black ">
         
          <h1 className=" text-lg md:text-2xl lg:text-3xl text-gray-800 font-bold">Paste the URL to be shortened</h1>
 
-         <div className=" w-[90%] md:w-[90%] lg:w-3/4 p-2 flex items-center justify-center">
+         <div className=" w-[90%] md:w-[90%] lg:w-3/4 p-2 flex items-center justify-center ">
              <input onChange={(e)=>{setUrl(e.target.value)}} className=" text-gray-800 w-[70%] text-xl px-2 py-2 bg-white rounded-md border border-text-gray-800" type="text" name="" id="" />
 
-             <button onClick={()=>{apiCall(), setClicked(false)}} className=" text-xl px-6 py-2 bg-red-500 text-white rounded-md"> Click</button>
+             <button onClick={()=>{apiCall(), setClicked(false), setLoad(true)}} className=" text-xl px-6 py-2 bg-[#FF2A54] text-white rounded-md">{load ? "Loading..." : "click"}</button>
          
          </div>
 
