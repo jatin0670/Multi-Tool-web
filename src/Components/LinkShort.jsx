@@ -20,7 +20,7 @@ const LinkShort = () => {
       });
     
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       return data;
     }
 
@@ -34,8 +34,8 @@ const LinkShort = () => {
           return;
         }
         const data = await shortenUrl(url)
-        console.log(data)
-        setLink(data)
+        console.log(data["short Code "])
+        setLink(data["short Code "])
       
   
       }
