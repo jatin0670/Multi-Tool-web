@@ -35,7 +35,7 @@ const LinkShort = () => {
         }
         const data = await shortenUrl(url)
         console.log(data["short Code "])
-        setLink(data["short Code "])
+        setLink(`https://multitoolbackend-production.up.railway.app/${data["short Code "]}`)
       
   
       }
