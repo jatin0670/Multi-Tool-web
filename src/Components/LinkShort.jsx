@@ -10,6 +10,20 @@ const LinkShort = () => {
     const [clicked, setClicked] = useState(false);
     const [load, setLoad] = useState(false)
 
+    async function shortenUrl(originalUrl) {
+      const response = await fetch("https://multitoolbackend-production.up.railway.app/short", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ original_url: originalUrl })
+      });
+    
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+
   
 
     const apiCall = async ()=>{
@@ -19,9 +33,9 @@ const LinkShort = () => {
           setLink('Your Link will be here!')
           return;
         }
-        fetch(`https://ulvis.net/api/v1/urls/${url}`)
-        .then(response => response.json())
-        .then(data => console.log(data));
+        const data = await shortenUrl(url)
+        console.log(data)
+        setLink(data)
       
   
       }
@@ -34,13 +48,13 @@ const LinkShort = () => {
 
 
 return (
-       <div className="  h-screen w-full relative flex flex-col items-center justify-center gap-16 bg-[#F3F0E8]">
+       <div className="  h-screen w-full relative flex flex-col items-center justify-center gap-16 bg-gradient-to-t from-indigo-900 to-gray-900">
    
-       <h1 className="text-3xl md:text-6xl lg:text-6xl font-bold text-[#585346]">Link Shortner</h1>
+       <h1 className="text-3xl md:text-6xl lg:text-6xl font-bold text-white">Link Shortner</h1>
 
-       <div className=' absolute h-[45%] w-[70%] top-60 backdrop-blur-xs flex items-center justify-center '>
+       {/* <div className=' absolute h-[45%] w-[70%] top-60 backdrop-blur-xs flex items-center justify-center '>
         <p className='lg:text-2xl md:text-lg text-sm font-bold'>Sorry for the inconvenience, but this will be solved soon!</p>
-       </div>
+       </div> */}
 
 
        <div className=" w-[90%] md:w-[60%] lg:w-[60%] border-2 border-gray-800 rounded-2xl bg-white gap-4 px-1 py-6 flex  items-center flex-col shadow-md shadow-black ">
@@ -48,9 +62,9 @@ return (
          <h1 className=" text-lg md:text-2xl lg:text-3xl text-gray-800 font-bold">Paste the URL to be shortened</h1>
 
          <div className=" w-[90%] md:w-[90%] lg:w-3/4 p-2 flex items-center justify-center ">
-             <input disabled="true" onChange={(e)=>{setUrl(e.target.value)}} className=" text-gray-800 w-[70%] text-xl px-2 py-2 bg-white rounded-md border border-text-gray-800" type="text" name="" id="" />
+             <input  onChange={(e)=>{setUrl(e.target.value)}} className=" text-gray-800 w-[70%] text-xl px-2 py-2 bg-white rounded-md border border-text-gray-800" type="text" name="" id="" />
 
-             <button disabled="true" onClick={()=>{apiCall(), setClicked(false), setLoad(true)}} className=" text-xl px-6 py-2 bg-[#FF2A54] text-white rounded-md">{load ? "Loading..." : "click"}</button>
+             <button  onClick={()=>{apiCall(), setClicked(false), setLoad(true)}} className=" text-xl px-6 py-2 bg-[#FF2A54] text-white rounded-md">{load ? "Loading..." : "click"}</button>
          
          </div>
 
