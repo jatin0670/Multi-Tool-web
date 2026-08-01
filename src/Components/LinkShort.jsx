@@ -36,6 +36,8 @@ const LinkShort = () => {
         const data = await shortenUrl(url)
         console.log(data["short Code "])
         setLink(`https://multitoolbackend-production.up.railway.app/${data["short Code "]}`)
+        setLoad(false)
+        setClicked(false)
       
   
       }
@@ -70,7 +72,7 @@ return (
 
          <div className=" text-white flex items-center justify-center p-2 gap-4">
             <h3 className='text-gray-800'>{link}</h3>
-            <span onClick={()=> [navigator.clipboard.writeText(link), setClicked(true)]} className=" px-4 py-1 bg-gray-600 text-white text-xl font-bold cursor-pointer rounded-md">{clicked ? "Copy" : "Copy"}</span>
+            <span onClick={()=> [navigator.clipboard.writeText(link), setClicked(true)]} className=" px-4 py-1 bg-gray-600 text-white text-xl font-bold cursor-pointer rounded-md">{clicked ? "copied" : "Copy"}</span>
          </div>
 
       </div>
