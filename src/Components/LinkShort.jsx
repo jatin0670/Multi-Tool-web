@@ -11,7 +11,7 @@ const LinkShort = () => {
     const [load, setLoad] = useState(false)
 
     async function shortenUrl(originalUrl) {
-      const response = await fetch("https://multitoolbackend-production.up.railway.app/short", {
+      const response = await fetch("https://multitoolbackend.onrender.com/short", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -35,7 +35,7 @@ const LinkShort = () => {
         }
         const data = await shortenUrl(url)
         console.log(data["short Code "])
-        setLink(`https://multitoolbackend-production.up.railway.app/${data["short Code "]}`)
+        setLink(`https://multitoolbackend.onrender.com/${data["short Code "]}`)
         setLoad(false)
         setClicked(false)
       
@@ -53,11 +53,6 @@ return (
        <div className="  h-screen w-full relative flex flex-col items-center justify-center gap-16 bg-gradient-to-t from-indigo-900 to-gray-900">
    
        <h1 className="text-3xl md:text-6xl lg:text-6xl font-bold text-white">Link Shortner</h1>
-
-       {/* <div className=' absolute h-[45%] w-[70%] top-60 backdrop-blur-xs flex items-center justify-center '>
-        <p className='lg:text-2xl md:text-lg text-sm font-bold'>Sorry for the inconvenience, but this will be solved soon!</p>
-       </div> */}
-
 
        <div className=" w-[90%] md:w-[60%] lg:w-[60%] border-2 border-gray-800 rounded-2xl bg-white gap-4 px-1 py-6 flex  items-center flex-col shadow-md shadow-black ">
         
