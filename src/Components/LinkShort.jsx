@@ -11,7 +11,7 @@ const LinkShort = () => {
     const [load, setLoad] = useState(false)
 
     async function shortenUrl(originalUrl) {
-      const response = await fetch("https://multitoolbackend.onrender.com/short", {
+      const response = await fetch("https://multi-tool-backend.onrender.com/short", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -20,7 +20,7 @@ const LinkShort = () => {
       });
     
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       return data;
     }
 
@@ -35,7 +35,7 @@ const LinkShort = () => {
         }
         const data = await shortenUrl(url)
         console.log(data["short Code "])
-        setLink(`https://multitoolbackend.onrender.com/${data["short Code "]}`)
+        setLink(`https://multi-tool-backend.onrender.com/${data["short Code "]}`)
         setLoad(false)
         setClicked(false)
       
